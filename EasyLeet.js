@@ -36,16 +36,35 @@ var removeElement = function(nums, val) {
 
 
 var majorityElement = function(nums) {
-    let count = 0;
-   let candidate = null;
+    // iterate through nums
+    // have count for each uniq element and for each element in arr add to count
+    // return element with highest count
+            // let count = 0;
+            // let candidate = null;
 
-   for (let num of nums) {
-       if (count === 0) {
-           candidate = num;
-       }
+            // for (let num of nums) {
+            //     if (count === 0) {
+            //         candidate = num;
+            //     }
 
-       count += (num === candidate) ? 1 : -1;
-   }
+            //     count += (num === candidate) ? 1 : -1;
+            // }
 
-   return candidate;
+            // return candidate;
+
+    let countMap = {};
+
+    for (let num of nums) {
+        countMap[num] = (countMap[num] || 0) + 1;
+            //  countMap[num]: This part retrieves the current count of the number num in the countMap. If num is not already a key in countMap, it will return undefined.
+            // (countMap[num] || 0): This part is using the logical OR (||) operator. If countMap[num] is undefined (which means num is not yet present in the countMap), it evaluates to 0. Otherwise, if countMap[num] has a value (i.e., countMap[num] is truthy), it keeps that value unchanged.
+            // (countMap[num] || 0) + 1: This part increments the value obtained from step 2 by 1. If num is not yet present in the countMap, it starts the count at 1.
+            // So, in summary, the line countMap[num] = (countMap[num] || 0) + 1; is effectively updating the count of num in the countMap, ensuring that it starts from 1 if num is encountered for the first time.
+        if (countMap[num] > nums.length / 2) {
+            return num;
+        }
+    }
+
+    // If no majority element found, you might handle this case as per your requirement.
+    // In this implementation, it's assumed that a majority element always exists.
 };
