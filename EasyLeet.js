@@ -19,15 +19,15 @@ var merge = function(nums1, m, nums2, n) {
 
 
 
-def merge(nums1, nums2, m, n)
-    // Merge the two arrays
-    nums1.slice!(m, nums1.length - m)
-    nums1.concat(nums2)
+// def merge(nums1, nums2, m, n)
+//     // Merge the two arrays
+//     nums1.slice!(m, nums1.length - m)
+//     nums1.concat(nums2)
 
-    //sort the merged array
-    nums1.sort!
+//     //sort the merged array
+//     nums1.sort!
 
-end
+// end
 
 
 
@@ -41,6 +41,17 @@ var removeElement = function(nums, val) {
     let k = 0; // Pointer to the current element
     for (let j = 0; j < nums.length; j++) {
         if (nums[j] !== val) {
+            nums[k] = nums[j];
+            k++;
+        }
+    }
+    return k;
+};
+
+function removeElementCopy(nums, val){
+    let k =0; //pointer to the current element
+    for (let j = 0; j < nums.length; j++){
+        if (nums[j] !== val){
             nums[k] = nums[j];
             k++;
         }
