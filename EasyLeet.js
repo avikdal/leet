@@ -27,7 +27,7 @@ var merge = function(nums1, m, nums2, n) {
 //     //sort the merged array
 //     nums1.sort!
 
-// end
+// end 
 
 
 
@@ -96,3 +96,27 @@ var majorityElement = function(nums) {
     // If no majority element found, you might handle this case as per your requirement.
     // In this implementation, it's assumed that a majority element always exists.
 };
+
+
+
+
+
+
+
+// Given an array of nums. We define a running sum of an array as runningSum[i] = sum(nums[0]...nums[i]). Return the running sum of nums.
+// Example: 
+    //input: nums = [1, 2, 3, 4]
+    //output: [1, 3, 6, 10]
+    //explanation: Running sum is obtined as follows: [1, 1+2, 1+2+3, 1+2+3+4]
+
+    var runningSum = function(nums){
+        // create new array of nums
+        let newNumsArray = new Array(nums.length)
+        // inidex 0 will be the same for nums and newNumsArray
+        newNumsArray[0] = nums[0]
+        //iterate through nums array starting at 1,adding previous elements to current element and make it the current iindex of newNumsArray
+        for( let i = 1; i < nums.length; i++){
+            //add previous element of newNums to current element of nums
+            newNumsArray[i] = newNumsArray[i-1] + nums[1]
+        }
+    }
